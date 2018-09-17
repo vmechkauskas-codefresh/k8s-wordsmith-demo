@@ -27,10 +27,12 @@ spec:
     spec:
       containers:
       - name: db
-        image: {{ .Values.db.image.repo }}:{{ .Values.db.image.tag }}
+        image: {{ .Values.db.image.name }}:{{ .Values.db.image.tag }}
         ports:
         - containerPort: 5432
           name: db
+      imagePullSecrets:
+      - name: {{ .Values.pullsecret }}
 ---
 apiVersion: v1
 kind: Service
@@ -62,10 +64,12 @@ spec:
     spec:
       containers:
       - name: words
-        image: {{ .Values.api.image.repo }}:{{ .Values.api.image.tag }}
+        image: {{ .Values.api.image.name }}:{{ .Values.api.image.tag }}
         ports:
         - containerPort: 8080
           name: api
+      imagePullSecrets:
+      - name: {{ .Values.pullsecret }}
 ---
 apiVersion: v1
 kind: Service
@@ -96,7 +100,9 @@ spec:
     spec:
       containers:
       - name: web
-        image: {{ .Values.web.image.repo }}:{{ .Values.web.image.tag }}
+        image: {{ .Values.web.image.name }}:{{ .Values.web.image.tag }}
         ports:
         - containerPort: 80
           name: words-web
+      imagePullSecrets:
+      - name: {{ .Values.pullsecret }}
