@@ -1,15 +1,16 @@
+pullsecret: codefresh-generated-r.cfcr.io-cfcr-test-manual
 db:
     image:
-        repo: r.cfcr.io/helmos/helmos/k8swordsmithdemo-db
+        name: k8swordsmithdemo-db
         tag: master
 
 api:
     image:
-        repo: r.cfcr.io/helmos/helmos/k8swordsmithdemo-words
+        name: k8swordsmithdemo-words
         tag: master
     replicas: 5
 
 web:
     image:
-        repo: r.cfcr.io/helmos/helmos/k8swordsmithdemo-web
+        name: k8swordsmithdemo-web
         tag: master
