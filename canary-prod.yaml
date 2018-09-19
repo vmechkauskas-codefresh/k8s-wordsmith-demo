@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: web-canary
+  labels:
+    app: words-web
+    track: canary
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: words-web
+    spec:
+      containers:
+      - name: web
+        image: '${{CANARY_IMAGE}}'
+        ports:
+        - containerPort: 80
+          name: words-web
+      imagePullSecrets:
+        - name: '${{PULL_SECRET}}'
