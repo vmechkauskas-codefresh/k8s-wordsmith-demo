@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: web
-        image: ${{CANARY_IMAGE}}
+        image: {{CANARY_IMAGE}}
         ports:
         - containerPort: 80
           name: words-web
       imagePullSecrets:
-        - name: '${{PULL_SECRET}}'
+        - name: {{PULL_SECRET}}
