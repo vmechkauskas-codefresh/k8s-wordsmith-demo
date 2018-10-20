@@ -1,4 +1,4 @@
-pullsecret: codefresh-generated-r.cfcr.io-cfcr-test-manual
+pullsecret: codefresh-generated-r.cfcr.io-cfcr-prod
 db:
     image:
         name: r.cfcr.io/helmos/helmos/k8swordsmithdemo-db
