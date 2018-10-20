@@ -14,4 +14,4 @@ web:
     image:
         name:  r.cfcr.io/helmos/helmos/k8swordsmithdemo-web
         tag: master
-    replicas: 1
+    replicas: 1 
